@@ -1,0 +1,41 @@
+{
+  "name": "components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "ts": "tsc --project tsconfig.json --outDir public",
+    "scss": "node-sass src --output public",
+    "images": "imagemin src/images/**/* --out-dir public/images",
+    "pug": "pug src --basedir ./ --obj src/data.json --out public --pretty",
+    "compile": "run-s pug images scss ts",
+    "serve": "http-server -p 3000",
+    "start": "run-p serve 'pug -- --watch' 'ts -- --watch' 'scss -- --watch'",
+    "build": "run-s build:*",
+    "build:ts": "tsc --project tsconfig.json --outDir dist",
+    "build:css": "node-sass src --output dist",
+    "build:scss": "cpy '**/*.scss' '../dist' --cwd=src --parents",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simboonlong/components.git"
+  },
+  "author": "Sim Boon Long",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simboonlong/components/issues"
+  },
+  "homepage": "https://github.com/simboonlong/components#readme",
+  "devDependencies": {
+    "cpy-cli": "^3.1.1",
+    "http-server": "^13.0.2",
+    "imagemin-cli": "^7.0.0",
+    "node-sass": "^6.0.1",
+    "npm-run-all": "^4.1.5",
+    "pug-cli": "^1.0.0-alpha6"
+  }
+}

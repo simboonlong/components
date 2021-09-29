@@ -1,0 +1,85 @@
+$overlay-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+$overlay-background: rgba(0, 0, 0, 0.4);
+$overlay-card-background: #fff;
+$overlay-card-color: inherit;
+$overlay-card-max-width: 900px;
+$overlay-card-max-height: 600px;
+$overlay-card-radius: 8px;
+$overlay-cancel-color: currentColor;
+$overlay-cancel-size: 24px;
+
+:root {
+  --overlay-shadow: #{$overlay-shadow};
+  --overlay-background: #{$overlay-background};
+  --overlay-card-background: #{$overlay-card-background};
+  --overlay-card-color: #{$overlay-card-color};
+  --overlay-card-max-width: #{$overlay-card-max-width};
+  --overlay-card-max-height: #{$overlay-card-max-height};
+  --overlay-card-radius: #{$overlay-card-radius};
+  --overlay-cancel-color: #{$overlay-cancel-color};
+  --overlay-cancel-size: #{$overlay-cancel-size};
+}
+
+.overlay {
+  transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.overlay-background {
+  background-color: var(--overlay-background);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.overlay-card {
+  background-color: var(--overlay-card-background);
+  color: var(--overlay-card-color);
+  box-shadow: var(--overlay-shadow);
+  border-radius: var(--overlay-card-radius);
+  max-width: var(--overlay-card-max-width);
+  max-height: var(--overlay-card-max-height);
+  margin: 16px;
+  padding: 16px;
+}
+
+.overlay-overflow {
+  position: relative;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.overlay-content {
+}
+
+.overlay-cancel {
+  color: var(--overlay-cancel-color);
+  width: var(--overlay-cancel-size);
+  height: var(--overlay-cancel-size);
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+  margin-left: auto;
+}
