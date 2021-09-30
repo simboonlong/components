@@ -2,6 +2,16 @@
   "name": "components",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://github.com/simboonlong/components#readme",
+  "bugs": {
+    "url": "https://github.com/simboonlong/components/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simboonlong/components.git"
+  },
+  "license": "MIT",
+  "author": "Sim Boon Long",
   "main": "index.js",
   "files": [
     "dist"
@@ -20,22 +30,13 @@
     "build:scss": "cpy '**/*.scss' '../dist' --cwd=src --parents",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/simboonlong/components.git"
-  },
-  "author": "Sim Boon Long",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/simboonlong/components/issues"
-  },
-  "homepage": "https://github.com/simboonlong/components#readme",
   "devDependencies": {
     "cpy-cli": "^3.1.1",
     "http-server": "^13.0.2",
     "imagemin-cli": "^7.0.0",
     "node-sass": "^6.0.1",
     "npm-run-all": "^4.1.5",
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "typescript": "^4.4.3"
   }
 }
