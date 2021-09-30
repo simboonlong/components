@@ -1,12 +1,12 @@
-export const overlayInit = () => {
-  const overlayOpen = () => {
-    document.querySelector(".overlay")?.classList.add("is-active");
-  };
+export const overlayOpen = (): void => {
+  document.querySelector(".overlay")?.classList.add("is-active");
+};
 
-  const overlayClose = () => {
-    document.querySelector(".overlay")?.classList.remove("is-active");
-  };
+export const overlayClose = (): void => {
+  document.querySelector(".overlay")?.classList.remove("is-active");
+};
 
+export const overlayInit = (): void => {
   document
     .querySelector(".overlay-trigger")
     ?.addEventListener("click", overlayOpen);
@@ -17,5 +17,3 @@ export const overlayInit = () => {
       el.addEventListener("click", overlayClose);
     });
 };
-
-overlayInit();
