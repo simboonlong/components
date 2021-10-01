@@ -1,7 +1,7 @@
 {
-  "name": "components",
+  "name": "@simboonlong/components",
   "version": "1.0.0",
-  "description": "",
+  "description": "Handcrafted components that might be of use.",
   "homepage": "https://github.com/simboonlong/components#readme",
   "bugs": {
     "url": "https://github.com/simboonlong/components/issues"
