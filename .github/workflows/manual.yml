@@ -24,4 +24,5 @@ jobs:
         if: ${{ !env.ACT }}
         run: npx semantic-release --branches master
         env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
