@@ -20,9 +20,8 @@ jobs:
         run: npm run e2e:ci
       - name: Build Distribution
         run: npm run build
-      # - name: semantic release
-      #   if: ${{ !env.ACT }}
-      #   run: npx semantic-release --branches master
-      #   env:
-      #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: semantic release
+        if: ${{ !env.ACT }}
+        run: npx semantic-release --branches master
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
