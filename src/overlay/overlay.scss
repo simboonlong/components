@@ -1,12 +1,12 @@
-$overlay-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
-$overlay-background: rgba(0, 0, 0, 0.4);
-$overlay-card-background: #fff;
-$overlay-card-color: inherit;
-$overlay-card-max-width: 900px;
-$overlay-card-max-height: 600px;
-$overlay-card-radius: 8px;
-$overlay-cancel-color: currentColor;
-$overlay-cancel-size: 24px;
+$overlay-shadow: 0 16px 32px rgba(0, 0, 0, 0.08) !default;
+$overlay-background: rgba(0, 0, 0, 0.4) !default;
+$overlay-card-background: #fff !default;
+$overlay-card-color: inherit !default;
+$overlay-card-max-width: 900px !default;
+$overlay-card-max-height: 600px !default;
+$overlay-card-radius: 8px !default;
+$overlay-cancel-color: currentColor !default;
+$overlay-cancel-size: 24px !default;
 
 :root {
   --overlay-shadow: #{$overlay-shadow};

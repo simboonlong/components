@@ -11,15 +11,15 @@ Handcrafted components that might be of use. List of components.
 ## Install
 
 `npm i @simboonlong/components`
-#### Overlay
+## Overlay
 
-Overlay, lightbox, modal, dialog whatever you call it.
-
-Direct [link](https://components.simboonlong.com/overlay).
+Overlay, lightbox, modal, dialog whatever you call it. [Demo](https://components.simboonlong.com/overlay).
 
 Example:
 
 ```
+<!-- html -->
+
 <div class="overlay">
   <div class="overlay-background"></div>
   <div class="overlay-wrap">
@@ -32,10 +32,25 @@ Example:
 ```
 
 ```
-@import "@simboonlong/components/overlay";
+// scss, otherwise vanilla css is available too.
+
+@import "@simboonlong/components/dist/overlay/overlay.scss";
+
+// customisation with:
+
+:root {
+  --overlay-background: green;
+}
+
+// OR
+
+$overlay-background: red;
 ```
 
+
 ```
-import { overlayInit } from "@simboonlong/components/overlay";
+// js
+
+import { overlayInit } from "@simboonlong/components";
 overlayInit();
 ```
