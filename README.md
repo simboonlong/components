@@ -2,9 +2,9 @@
 
 # Components
 
-Handcrafted components that might be of use. List of components.
+Handcrafted components that might be of use.
 
-## Demo
+## List of components
 
 [http://components.simboonlong.com](http://components.simboonlong.com)
 
@@ -19,7 +19,6 @@ Example:
 
 ```
 <!-- html -->
-
 <div class="overlay">
   <div class="overlay-background"></div>
   <div class="overlay-wrap">
@@ -33,24 +32,20 @@ Example:
 
 ```
 // scss, otherwise vanilla css is available too.
-
 @import "@simboonlong/components/dist/overlay/overlay.scss";
 
 // customisation with:
-
 :root {
   --overlay-background: green;
 }
 
 // OR
-
 $overlay-background: red;
 ```
 
 
 ```
 // js
-
 import { overlayInit } from "@simboonlong/components";
 overlayInit();
 ```
