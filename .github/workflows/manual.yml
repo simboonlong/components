@@ -16,11 +16,11 @@ jobs:
         run: npm run tests
       - name: Build App
         run: npm run compile
-      - name: Integration tests
+      - name: Integration Tests
         run: npm run e2e:ci
       - name: Build Distribution
         run: npm run build
-      - name: semantic release
+      - name: Release
         if: ${{ !env.ACT }}
         run: npx semantic-release --branches master
         env:
