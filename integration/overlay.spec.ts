@@ -1,6 +1,6 @@
 import { Selector } from "testcafe";
 
-fixture`My Fixture`.page("http://localhost:3000/overlay");
+fixture`Overlay`.page("http://localhost:3000/overlay");
 
 test("should show overlay when clicked on trigger", async (t) => {
   await t.click(".overlay-trigger");
