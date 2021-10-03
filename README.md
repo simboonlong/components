@@ -49,3 +49,5 @@ $overlay-background: red;
 import { overlayInit } from "@simboonlong/components";
 overlayInit();
 ```
+
+Author © [Sim Boon Long](http://simboonlong.com).
