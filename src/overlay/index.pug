@@ -17,6 +17,7 @@ html
   body
     .container.mx-auto.px-4.py-8
       button.overlay-trigger Overlay open
+      button.bg-gray-300#foobar(class="hover:bg-gray-500") Update content to foobar
     .overlay
       .overlay-background
       .overlay-wrap
@@ -31,8 +32,14 @@ html
             p Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.
             p Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.
             p Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.3/purify.min.js')
     script(src=`./index.js` type="module")
     script(type="module").
-      import { overlayInit } from "./index.js";
+      import { overlayInit, overlayUpdateContent } from "./index.js";
       overlayInit();
-
+      document.getElementById("foobar").addEventListener("click", (event) => {
+        const el = event.target;
+        el.textContent = `Updated! Click open again :)`;
+        el.setAttribute(`disabled`, true);
+        overlayUpdateContent(DOMPurify.sanitize(`<h1>foobar</h1>`));
+      });

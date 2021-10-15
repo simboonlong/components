@@ -1,3 +1,8 @@
+export const overlayUpdateContent = (rawHtml: string): void => {
+  const content = <HTMLElement>document.querySelector(".overlay-content");
+  content.innerHTML = rawHtml;
+};
+
 export const overlayOpen = (): void => {
   document.querySelector(".overlay")?.classList.add("is-active");
 };

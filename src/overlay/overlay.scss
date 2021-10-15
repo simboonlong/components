@@ -34,6 +34,10 @@ $overlay-cancel-size: 24px !default;
   &.is-active {
     opacity: 1;
     visibility: visible;
+
+    .overlay-card {
+      transform: scale(1);
+    }
   }
 }
 
@@ -55,6 +59,9 @@ $overlay-cancel-size: 24px !default;
 }
 
 .overlay-card {
+  transition: transform 0.3s ease-out;
+  transform: scale(0.95);
+
   background-color: var(--overlay-card-background);
   color: var(--overlay-card-color);
   box-shadow: var(--overlay-shadow);

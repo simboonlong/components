@@ -4,7 +4,12 @@
 
 Handcrafted components that might be of use.
 
-## List of components
+## Why?
+
+There are many superior alternatives in the wild. Sometimes I only need a bicycle, not a tank. Hence this.
+
+
+## Demo
 
 [http://components.simboonlong.com](http://components.simboonlong.com)
 
@@ -13,7 +18,7 @@ Handcrafted components that might be of use.
 `npm i @simboonlong/components`
 ## Overlay
 
-Overlay, lightbox, modal, dialog whatever you call it. [Demo](https://components.simboonlong.com/overlay).
+Overlay, lightbox, modal, dialog or whatever you call it. [Demo](https://components.simboonlong.com/overlay).
 
 Example:
 
@@ -31,7 +36,7 @@ Example:
 ```
 
 ```
-// scss, otherwise vanilla css is available too.
+// scss, otherwise vanilla css is available too
 @import "@simboonlong/components/dist/overlay/overlay.scss";
 
 // customisation with:
@@ -39,8 +44,10 @@ Example:
   --overlay-background: green;
 }
 
-// OR
+// or
 $overlay-background: red;
+
+// see source code for more of other customisable variables :)
 ```
 
 
@@ -48,6 +55,13 @@ $overlay-background: red;
 // js
 import { overlayInit } from "@simboonlong/components";
 overlayInit();
+```
+
+```
+// js other methods
+overlayOpen();
+overlayClose();
+overlayUpdateContent(DOMPurify.sanitize(`<div>foobar</div>`)); // it is recommended to sanitize any raw html! include DOMPurify separately
 ```
 
 Author © [Sim Boon Long](http://simboonlong.com).
