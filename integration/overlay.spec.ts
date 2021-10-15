@@ -18,3 +18,8 @@ test("should close overlay when clicked on overlay background", async (t) => {
   await t.click(".overlay-background", { offsetX: 0, offsetY: 0 });
   await t.expect(Selector(".overlay").visible).notOk();
 });
+
+test("should update overlay content", async (t) => {
+  await t.click("#foobar");
+  await t.expect(Selector(".overlay-content").textContent).contains("foobar");
+});
