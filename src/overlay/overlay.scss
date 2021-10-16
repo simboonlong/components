@@ -85,6 +85,7 @@ $overlay-cancel-size: 24px !default;
   color: var(--overlay-cancel-color);
   width: var(--overlay-cancel-size);
   height: var(--overlay-cancel-size);
+  display: block;
   cursor: pointer;
   position: sticky;
   top: 0;
