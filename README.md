@@ -53,8 +53,8 @@ $overlay-background: red;
 
 ```
 // js
-import { overlayInit } from "@simboonlong/components";
-overlayInit();
+import { overlay } from "@simboonlong/components";
+overlay();
 ```
 
 ```
@@ -63,5 +63,61 @@ overlayOpen();
 overlayClose();
 overlayUpdateContent(DOMPurify.sanitize(`<div>foobar</div>`)); // it is recommended to sanitize any raw html! include DOMPurify separately
 ```
+
+## News Ticker
+
+Text-based display for announcements. [Demo](https://components.simboonlong.com/news-ticker).
+
+Example:
+
+```
+<!-- html -->
+<div class="news-ticker">
+  <div class="news-ticker-container">
+    <div class="news-ticker-item is-active">some text 0</div>
+    <div class="news-ticker-item">some text 1</div>
+    <div class="news-ticker-item">some text 2</div>
+    <div class="news-ticker-item">some text 3</div>
+    <div class="news-ticker-item">some text 4</div>
+  </div>
+  <button class="news-ticker-prev">previous</button>
+  <button class="news-ticker-next">next</button>
+</div>
+```
+
+```
+<!-- customisation with: -->
+<div class="news-ticker" data-interval="1000" data-direction="down"> ... </div>
+```
+
+```
+// scss, otherwise vanilla css is available too
+@import "@simboonlong/components/dist/news-ticker/news-ticker.scss";
+
+// customisation with:
+:root {
+  --news-ticker-speed: 0.2s;
+}
+
+// or
+$news-ticker-speed: 0.7s;
+```
+
+
+```
+// js
+import { NewsTicker } from "./index.js";
+const newsTicker = NewsTicker({
+  el: document.querySelector(".news-ticker"),
+  interval: 1000, // optional, default 3000
+  direction: "down", // optional, default "up"
+});
+newsTicker.goTo(3); // goes to 4th item
+```
+
+<!--
+TODO: move inView over?
+TODO: pulldown
+-->
 
 Author © [Sim Boon Long](http://simboonlong.com).
