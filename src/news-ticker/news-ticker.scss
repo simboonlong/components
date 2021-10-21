@@ -1,0 +1,119 @@
+$news-ticker-speed: 0.5s; /* should not be longer than interval set by data-attribute or js option */
+
+:root {
+  --news-ticker-speed: #{$news-ticker-speed};
+}
+
+.news-ticker {
+  &[data-direction="up"] {
+    .news-ticker-item {
+      transform: translateY(100%);
+
+      &.is-outgoing {
+        animation-name: news-ticker-fade-out-up;
+      }
+
+      &.is-active {
+        animation-name: news-ticker-fade-in-up;
+      }
+    }
+  }
+
+  &[data-direction="down"] {
+    .news-ticker-item {
+      transform: translateY(-100%);
+
+      &.is-outgoing {
+        animation-name: news-ticker-fade-out-down;
+      }
+
+      &.is-active {
+        animation-name: news-ticker-fade-in-down;
+      }
+    }
+  }
+
+  .news-ticker-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .news-ticker-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    animation-duration: $news-ticker-speed;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+    opacity: 0;
+
+    &.is-active {
+      position: relative;
+    }
+  }
+
+  .news-ticker-prev,
+  .news-ticker-next {
+    cursor: pointer;
+  }
+}
+
+@keyframes news-ticker-fade-out-up {
+  0% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes news-ticker-fade-in-up {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes news-ticker-fade-out-down {
+  0% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes news-ticker-fade-in-down {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -11,7 +11,7 @@ export const overlayClose = (): void => {
   document.querySelector(".overlay")?.classList.remove("is-active");
 };
 
-export const overlayInit = (): void => {
+export const overlay = (): void => {
   document
     .querySelector(".overlay-trigger")
     ?.addEventListener("click", overlayOpen);
