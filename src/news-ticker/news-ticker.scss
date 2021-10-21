@@ -1,4 +1,4 @@
-$news-ticker-speed: 0.5s; /* should not be longer than interval set by data-attribute or js option */
+$news-ticker-speed: 0.5s !default; /* should not be longer than interval set by data-attribute or js option */
 
 :root {
   --news-ticker-speed: #{$news-ticker-speed};
@@ -45,7 +45,7 @@ $news-ticker-speed: 0.5s; /* should not be longer than interval set by data-attr
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    animation-duration: $news-ticker-speed;
+    animation-duration: var(--news-ticker-speed);
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     visibility: hidden;

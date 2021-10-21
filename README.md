@@ -36,20 +36,24 @@ Example:
 ```
 
 ```
-// scss, otherwise vanilla css is available too
+// scss
+$overlay-background: red; // customise
+
 @import "@simboonlong/components/dist/overlay/overlay.scss";
 
-// customisation with:
+// alternatively for vanilla css, customise with:
 :root {
-  --overlay-background: green;
+  --overlay-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  --overlay-background: rgba(0, 0, 0, 0.4);
+  --overlay-card-background: #fff;
+  --overlay-card-color: inherit;
+  --overlay-card-max-width: 900px;
+  --overlay-card-max-height: 600px;
+  --overlay-card-radius: 8px;
+  --overlay-cancel-color: currentColor;
+  --overlay-cancel-size: 24px;
 }
-
-// or
-$overlay-background: red;
-
-// see source code for more of other customisable variables :)
 ```
-
 
 ```
 // js
@@ -86,23 +90,21 @@ Example:
 ```
 
 ```
-<!-- customisation with: -->
+<!-- customise with: -->
 <div class="news-ticker" data-interval="1000" data-direction="down"> ... </div>
 ```
 
 ```
-// scss, otherwise vanilla css is available too
+// scss
+$news-ticker-speed: 0.7s; // customise
+
 @import "@simboonlong/components/dist/news-ticker/news-ticker.scss";
 
-// customisation with:
+// alternatively for vanilla css, customise with:
 :root {
   --news-ticker-speed: 0.2s;
 }
-
-// or
-$news-ticker-speed: 0.7s;
 ```
-
 
 ```
 // js
