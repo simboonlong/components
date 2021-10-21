@@ -107,7 +107,8 @@ export const NewsTicker = (opt: NewsTickerOption): NewsTickerProps => {
   };
 
   let newsTickerHandler = setInterval(cycle, INTERVAL);
-  el.setAttribute("data-id", `${INTERVAL}`);
+  el.setAttribute("data-id", "0");
+  el.setAttribute("data-interval", `${INTERVAL}`);
   el.setAttribute("data-direction", DIRECTION);
   newsTickerPrev?.addEventListener("click", () => go(-1));
   newsTickerNext?.addEventListener("click", () => go(1));
