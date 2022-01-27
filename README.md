@@ -8,7 +8,6 @@ Handcrafted components that might be of use.
 
 There are many superior alternatives in the wild. Sometimes I only need a bicycle, not a tank. Hence this.
 
-
 ## Demo
 
 [http://components.simboonlong.com](http://components.simboonlong.com)
@@ -16,6 +15,7 @@ There are many superior alternatives in the wild. Sometimes I only need a bicycl
 ## Install
 
 `npm i @simboonlong/components`
+
 ## Overlay
 
 Overlay, lightbox, modal, dialog or whatever you call it. [Demo](https://components.simboonlong.com/overlay).
@@ -117,9 +117,40 @@ const newsTicker = NewsTicker({
 newsTicker.goTo(3); // goes to 4th item
 ```
 
-<!--
-TODO: move inView over?
-TODO: pulldown
--->
+## Drop-down
 
-Author © [Sim Boon Long](http://simboonlong.com).
+Simple drop-down list. [Demo](https://components.simboonlong.com/drop-down).
+
+Example:
+
+```
+<!-- html -->
+<nav>
+  <div class="example-1">example 1</div>
+  <ul class="drop-down">
+    <li><a href="#some-link-1">some link 1</a></li>
+    <li><a href="#some-link-2">some link 2</a></li>
+    <li><a href="#some-link-3">some link 3</a></li>
+  </ul>
+</nav>
+```
+
+```
+// scss
+$drop-down-background-color: #fff !default; // customise
+
+@import "@simboonlong/components/dist/drop-down/drop-down.scss";
+
+// alternatively for vanilla css, customise with:
+:root {
+  --drop-down-background-color: #ffeebb;
+}
+```
+
+```
+// js
+import { DropDown } from "./index.js";
+DropDown({ el: document.querySelector(".example-1") });
+```
+
+Author © [Sim Boon Long](https://simboonlong.com).
