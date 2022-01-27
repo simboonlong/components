@@ -11,6 +11,12 @@ html
     link(href="https://tools.simboonlong.com/css/common.css", rel="stylesheet")
     link(href="./news-ticker.css", rel="stylesheet")
     style.
+      a {
+        color: #6f6fff;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
       p {
         margin-bottom: 16px;
       }
@@ -58,7 +64,8 @@ html
               .news-ticker-item some text 3
               .news-ticker-item(data-testid="text3") some text 3
             button#go(data-testid="goTo") newsTicker.goTo(3);
-
+    .fixed.bottom-0.right-0.mr-8.mb-8
+      a(href="../") &larr; Back
     script(src=`./index.js` type="module")
     script(type="module").
       import { NewsTicker } from "./index.js";

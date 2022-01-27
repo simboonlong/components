@@ -1,0 +1,24 @@
+$drop-down-background-color: #fff !default;
+$drop-down-border: solid 1px #999 !default;
+$drop-down-border-radius: 4px !default;
+$drop-down-padding: 4px 8px !default;
+
+:root {
+  --drop-down-background-color: #{$drop-down-background-color};
+  --drop-down-border: #{$drop-down-border};
+  --drop-down-border-radius: #{$drop-down-border-radius};
+  --drop-down-padding: #{$drop-down-padding};
+}
+
+.drop-down {
+  display: none;
+  position: absolute;
+  background-color: var(--drop-down-background-color);
+  border: var(--drop-down-border);
+  border-radius: var(--drop-down-border-radius);
+  padding: var(--drop-down-padding);
+
+  &.show {
+    display: block;
+  }
+}

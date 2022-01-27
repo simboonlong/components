@@ -1,0 +1,54 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title Drop-down - #{meta.description}
+    meta(name="description" content=meta.description)
+    meta(name="author" content=meta.author)
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    link(rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png")
+    link(href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet")
+    link(href="https://tools.simboonlong.com/css/common.css", rel="stylesheet")
+    link(href="./drop-down.css", rel="stylesheet")
+    style.
+      body {
+        min-height: 100vh;
+      }
+      a {
+        color: #6f6fff;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      p {
+        margin-bottom: 16px;
+      }
+  body
+    .container.mx-auto.px-4.py-8
+      nav.menu
+        ul.flex.flex-wrap
+          li.w-auto.mr-2
+            .cursor-pointer.example-1(class="hover:underline") example 1
+            ul.drop-down
+              li
+                a(href="#some-link-1") some link 1
+              li
+                a(href="#some-link-2") some link 2
+              li
+                a(href="#some-link-3") some link 3
+          li.w-auto.mr-2
+            .cursor-pointer.example-2(class="hover:underline") example 2
+            ul.drop-down
+              li
+                a(href="#some-link-1") some link 1
+              li
+                a(href="#some-link-2") some link 2
+              li
+                a(href="#some-link-3") some link 3
+    .fixed.bottom-0.right-0.mr-8.mb-8
+      a(href="../") &larr; Back
+    script(src=`./index.js` type="module")
+    script(type="module").
+      import { DropDown } from "./index.js";
+      DropDown({ el: document.querySelector(".example-1") });
+      DropDown({ el: document.querySelector(".example-2") });
