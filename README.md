@@ -135,6 +135,8 @@ Example:
 </nav>
 ```
 
+> Note that `.drop-down` must be an immediate sibling of drop-down trigger.
+
 ```
 // scss
 $drop-down-background-color: #fff !default; // customise
