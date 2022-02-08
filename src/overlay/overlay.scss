@@ -1,21 +1,21 @@
-$overlay-shadow: 0 16px 32px rgba(0, 0, 0, 0.08) !default;
-$overlay-background: rgba(0, 0, 0, 0.4) !default;
-$overlay-card-background: #fff !default;
+$overlay-box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08) !default;
+$overlay-background-color: rgba(0, 0, 0, 0.4) !default;
+$overlay-card-background-color: #fff !default;
 $overlay-card-color: inherit !default;
 $overlay-card-max-width: 900px !default;
 $overlay-card-max-height: 600px !default;
-$overlay-card-radius: 8px !default;
+$overlay-card-border-radius: 8px !default;
 $overlay-cancel-color: currentColor !default;
 $overlay-cancel-size: 24px !default;
 
 :root {
-  --overlay-shadow: #{$overlay-shadow};
-  --overlay-background: #{$overlay-background};
-  --overlay-card-background: #{$overlay-card-background};
+  --overlay-box-shadow: #{$overlay-box-shadow};
+  --overlay-background-color: #{$overlay-background-color};
+  --overlay-card-background-color: #{$overlay-card-background-color};
   --overlay-card-color: #{$overlay-card-color};
   --overlay-card-max-width: #{$overlay-card-max-width};
   --overlay-card-max-height: #{$overlay-card-max-height};
-  --overlay-card-radius: #{$overlay-card-radius};
+  --overlay-card-border-radius: #{$overlay-card-border-radius};
   --overlay-cancel-color: #{$overlay-cancel-color};
   --overlay-cancel-size: #{$overlay-cancel-size};
 }
@@ -42,7 +42,7 @@ $overlay-cancel-size: 24px !default;
 }
 
 .overlay-background {
-  background-color: var(--overlay-background);
+  background-color: var(--overlay-background-color);
   position: absolute;
   top: 0;
   left: 0;
@@ -62,10 +62,10 @@ $overlay-cancel-size: 24px !default;
   transition: transform 0.3s ease-out;
   transform: scale(0.95);
 
-  background-color: var(--overlay-card-background);
+  background-color: var(--overlay-card-background-color);
   color: var(--overlay-card-color);
-  box-shadow: var(--overlay-shadow);
-  border-radius: var(--overlay-card-radius);
+  box-shadow: var(--overlay-box-shadow);
+  border-radius: var(--overlay-card-border-radius);
   max-width: var(--overlay-card-max-width);
   max-height: var(--overlay-card-max-height);
   margin: 16px;

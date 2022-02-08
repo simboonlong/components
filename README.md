@@ -10,7 +10,7 @@ There are many superior alternatives in the wild. Sometimes I only need a bicycl
 
 ## Demo
 
-[http://components.simboonlong.com](http://components.simboonlong.com)
+[https://components.simboonlong.com](https://components.simboonlong.com)
 
 ## Install
 
@@ -37,19 +37,19 @@ Example:
 
 ```
 // scss
-$overlay-background: red; // customise
+$overlay-background-color: red; // customise
 
 @import "@simboonlong/components/dist/overlay/overlay.scss";
 
 // alternatively for vanilla css, customise with:
 :root {
-  --overlay-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
-  --overlay-background: rgba(0, 0, 0, 0.4);
-  --overlay-card-background: #fff;
+  --overlay-box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  --overlay-background-color: rgba(0, 0, 0, 0.4);
+  --overlay-card-background-color: #fff;
   --overlay-card-color: inherit;
   --overlay-card-max-width: 900px;
   --overlay-card-max-height: 600px;
-  --overlay-card-radius: 8px;
+  --overlay-card-border-radius: 8px;
   --overlay-cancel-color: currentColor;
   --overlay-cancel-size: 24px;
 }
