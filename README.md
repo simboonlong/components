@@ -39,7 +39,6 @@ Example:
 ```
 // scss
 $drop-down-background-color: #fff !default; // customise
-
 @import "@simboonlong/components/dist/drop-down/drop-down.scss";
 
 // alternatively for vanilla css, customise with:
@@ -83,7 +82,6 @@ Example:
 ```
 // scss
 $news-ticker-speed: 0.7s; // customise
-
 @import "@simboonlong/components/dist/news-ticker/news-ticker.scss";
 
 // alternatively for vanilla css, customise with:
@@ -125,7 +123,6 @@ Example:
 ```
 // scss
 $overlay-background-color: red; // customise
-
 @import "@simboonlong/components/dist/overlay/overlay.scss";
 
 // alternatively for vanilla css, customise with:
@@ -180,7 +177,6 @@ Example:
 ```
 // scss
 $paginator-link-color: #6f6fff !default;  // customise
-
 @import "@simboonlong/components/dist/paginator/paginator.scss";
 
 // alternatively for vanilla css, customise with:
@@ -193,10 +189,10 @@ $paginator-link-color: #6f6fff !default;  // customise
 
 ```
 // js
-import { Paginator } from "./index.js";
+import { Paginator } from "@simboonlong/components";
 Paginator({ el: document.querySelector(".paginator"), items: document.querySelectorAll(".paginate"), perPage: 2, range: 3 });
 ```
 
-> Note that `range` is optional (defaults to 3) and _MUST_ be odd number.
+> Note that `range` is optional (defaults to 3) and _MUST_ be a positive odd number.
 
 Author © [Sim Boon Long](https://simboonlong.com).
