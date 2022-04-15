@@ -34,7 +34,7 @@ Example:
 </nav>
 ```
 
-> Note that `.drop-down` must be an immediate sibling of drop-down trigger.
+> Note that `.drop-down` must be an immediate sibling of drop-down trigger. In this case, the trigger is `.example-1`.
 
 ```
 // scss
@@ -45,6 +45,8 @@ $drop-down-background-color: #fff !default; // customise
 :root {
   --drop-down-background-color: #ffeebb;
 }
+
+// inspect styles for more options
 ```
 
 ```
@@ -88,6 +90,8 @@ $news-ticker-speed: 0.7s; // customise
 :root {
   --news-ticker-speed: 0.2s;
 }
+
+// inspect styles for more options
 ```
 
 ```
@@ -127,16 +131,10 @@ $overlay-background-color: red; // customise
 
 // alternatively for vanilla css, customise with:
 :root {
-  --overlay-box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
   --overlay-background-color: rgba(0, 0, 0, 0.4);
-  --overlay-card-background-color: #fff;
-  --overlay-card-color: inherit;
-  --overlay-card-max-width: 900px;
-  --overlay-card-max-height: 600px;
-  --overlay-card-border-radius: 8px;
-  --overlay-cancel-color: currentColor;
-  --overlay-cancel-size: 24px;
 }
+
+// inspect styles for more options
 ```
 
 ```
@@ -185,12 +183,14 @@ $paginator-link-color: #6f6fff !default;  // customise
   --paginator-link-color: #6f6fff;
   --paginator-link-disabled-color: #ccc;
 }
+
+// inspect styles for more options
 ```
 
 ```
 // js
 import { Paginator } from "@simboonlong/components";
-Paginator({ el: document.querySelector(".paginator"), items: document.querySelectorAll(".paginate"), perPage: 2, range: 3 });
+Paginator({ el: document.querySelector(".paginator"), items: document.querySelectorAll(".paginate"), perPage: 2, range: 1 });
 ```
 
 > Note that `range` is optional (defaults to 3) and _MUST_ be a positive odd number.
