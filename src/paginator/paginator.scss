@@ -1,0 +1,49 @@
+$paginator-link-padding: 8px !default;
+$paginator-link-color: #6f6fff !default;
+$paginator-link-disabled-color: #ccc !default;
+
+:root {
+  --paginator-link-padding: #{$paginator-link-padding};
+  --paginator-link-color: #{$paginator-link-color};
+  --paginator-link-disabled-color: #{$paginator-link-disabled-color};
+}
+
+.paginator {
+}
+
+.paginator-link {
+  display: inline-block;
+  color: var(--paginator-link-color);
+  padding: var(--paginator-link-padding);
+
+  &.active {
+    text-decoration: underline;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    color: var(--paginator-link-disabled-color);
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.paginator-truncate {
+  display: inline-block;
+  color: var(--paginator-link-color);
+  padding: var(--paginator-link-padding);
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.paginate {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}

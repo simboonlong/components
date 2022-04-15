@@ -16,6 +16,93 @@ There are many superior alternatives in the wild. Sometimes I only need a bicycl
 
 `npm i @simboonlong/components`
 
+## Drop-down
+
+Simple drop-down list. [Demo](https://components.simboonlong.com/drop-down).
+
+Example:
+
+```
+<!-- html -->
+<nav>
+  <div class="example-1">example 1</div>
+  <ul class="drop-down">
+    <li><a href="#some-link-1">some link 1</a></li>
+    <li><a href="#some-link-2">some link 2</a></li>
+    <li><a href="#some-link-3">some link 3</a></li>
+  </ul>
+</nav>
+```
+
+> Note that `.drop-down` must be an immediate sibling of drop-down trigger.
+
+```
+// scss
+$drop-down-background-color: #fff !default; // customise
+
+@import "@simboonlong/components/dist/drop-down/drop-down.scss";
+
+// alternatively for vanilla css, customise with:
+:root {
+  --drop-down-background-color: #ffeebb;
+}
+```
+
+```
+// js
+import { DropDown } from "./index.js";
+DropDown({ el: document.querySelector(".example-1") });
+```
+
+## News Ticker
+
+Text-based display for announcements. [Demo](https://components.simboonlong.com/news-ticker).
+
+Example:
+
+```
+<!-- html -->
+<div class="news-ticker">
+  <div class="news-ticker-container">
+    <div class="news-ticker-item is-active">some text 0</div>
+    <div class="news-ticker-item">some text 1</div>
+    <div class="news-ticker-item">some text 2</div>
+    <div class="news-ticker-item">some text 3</div>
+    <div class="news-ticker-item">some text 4</div>
+  </div>
+  <button class="news-ticker-prev">previous</button>
+  <button class="news-ticker-next">next</button>
+</div>
+```
+
+```
+<!-- customise with: -->
+<div class="news-ticker" data-interval="1000" data-direction="down"> ... </div>
+```
+
+```
+// scss
+$news-ticker-speed: 0.7s; // customise
+
+@import "@simboonlong/components/dist/news-ticker/news-ticker.scss";
+
+// alternatively for vanilla css, customise with:
+:root {
+  --news-ticker-speed: 0.2s;
+}
+```
+
+```
+// js
+import { NewsTicker } from "./index.js";
+const newsTicker = NewsTicker({
+  el: document.querySelector(".news-ticker"),
+  interval: 1000, // optional, default 3000
+  direction: "down", // optional, default "up"
+});
+newsTicker.goTo(3); // goes to 4th item
+```
+
 ## Overlay
 
 Overlay, lightbox, modal, dialog or whatever you call it. [Demo](https://components.simboonlong.com/overlay).
@@ -68,91 +155,48 @@ overlayClose();
 overlayUpdateContent(DOMPurify.sanitize(`<div>foobar</div>`)); // it is recommended to sanitize any raw html! include DOMPurify separately
 ```
 
-## News Ticker
+## Paginator
 
-Text-based display for announcements. [Demo](https://components.simboonlong.com/news-ticker).
+Basic pagination with URL params. [Demo](https://components.simboonlong.com/paginator).
 
 Example:
 
 ```
 <!-- html -->
-<div class="news-ticker">
-  <div class="news-ticker-container">
-    <div class="news-ticker-item is-active">some text 0</div>
-    <div class="news-ticker-item">some text 1</div>
-    <div class="news-ticker-item">some text 2</div>
-    <div class="news-ticker-item">some text 3</div>
-    <div class="news-ticker-item">some text 4</div>
+<div>
+  <div class="paginate">
+    <p>Some text 1</p>
   </div>
-  <button class="news-ticker-prev">previous</button>
-  <button class="news-ticker-next">next</button>
+  <div class="paginate">
+    <p>Some text 2</p>
+  </div>
+  <div class="paginate">
+    <p>Some text 3</p>
+  </div>
 </div>
-```
-
-```
-<!-- customise with: -->
-<div class="news-ticker" data-interval="1000" data-direction="down"> ... </div>
+<div class="paginator"></div>
 ```
 
 ```
 // scss
-$news-ticker-speed: 0.7s; // customise
+$paginator-link-color: #6f6fff !default;  // customise
 
-@import "@simboonlong/components/dist/news-ticker/news-ticker.scss";
+@import "@simboonlong/components/dist/paginator/paginator.scss";
 
 // alternatively for vanilla css, customise with:
 :root {
-  --news-ticker-speed: 0.2s;
+  --paginator-link-padding: 8px;
+  --paginator-link-color: #6f6fff;
+  --paginator-link-disabled-color: #ccc;
 }
 ```
 
 ```
 // js
-import { NewsTicker } from "./index.js";
-const newsTicker = NewsTicker({
-  el: document.querySelector(".news-ticker"),
-  interval: 1000, // optional, default 3000
-  direction: "down", // optional, default "up"
-});
-newsTicker.goTo(3); // goes to 4th item
+import { Paginator } from "./index.js";
+Paginator({ el: document.querySelector(".paginator"), items: document.querySelectorAll(".paginate"), perPage: 2, range: 3 });
 ```
 
-## Drop-down
-
-Simple drop-down list. [Demo](https://components.simboonlong.com/drop-down).
-
-Example:
-
-```
-<!-- html -->
-<nav>
-  <div class="example-1">example 1</div>
-  <ul class="drop-down">
-    <li><a href="#some-link-1">some link 1</a></li>
-    <li><a href="#some-link-2">some link 2</a></li>
-    <li><a href="#some-link-3">some link 3</a></li>
-  </ul>
-</nav>
-```
-
-> Note that `.drop-down` must be an immediate sibling of drop-down trigger.
-
-```
-// scss
-$drop-down-background-color: #fff !default; // customise
-
-@import "@simboonlong/components/dist/drop-down/drop-down.scss";
-
-// alternatively for vanilla css, customise with:
-:root {
-  --drop-down-background-color: #ffeebb;
-}
-```
-
-```
-// js
-import { DropDown } from "./index.js";
-DropDown({ el: document.querySelector(".example-1") });
-```
+> Note that `range` is optional (defaults to 3) and _MUST_ be odd number.
 
 Author © [Sim Boon Long](https://simboonlong.com).

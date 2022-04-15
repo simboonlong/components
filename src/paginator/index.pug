@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title Paginator - #{meta.description}
+    meta(name="description" content=meta.description)
+    meta(name="author" content=meta.author)
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    link(rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png")
+    link(href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet")
+    link(href="https://tools.simboonlong.com/css/common.css", rel="stylesheet")
+    link(href="./paginator.css", rel="stylesheet")
+  body
+    .container.mx-auto.px-4.py-8
+      .flex.flex-wrap
+        each item in paginate
+          .paginate.border.p-2.w-auto.mr-2
+            p=item.text
+            //- hr.my-2
+            //- each cat in item.categories
+            //-   a.block(href="?category=" + category[cat] + "").text-xs.font-bold.uppercase=category[cat]
+      .paginator
+    .fixed.bottom-0.right-0.mr-8.mb-8
+      a(href="../") &larr; Back
+    script(src=`./index.js` type="module")
+    script(type="module").
+      import { Paginator } from "./index.js";
+      Paginator({ el: document.querySelector(".paginator"), items: document.querySelectorAll(".paginate"), perPage: 2 });
+
