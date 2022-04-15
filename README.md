@@ -49,7 +49,7 @@ $drop-down-background-color: #fff !default; // customise
 
 ```
 // js
-import { DropDown } from "./index.js";
+import { DropDown } from "@simboonlong/components";
 DropDown({ el: document.querySelector(".example-1") });
 ```
 
@@ -92,7 +92,7 @@ $news-ticker-speed: 0.7s; // customise
 
 ```
 // js
-import { NewsTicker } from "./index.js";
+import { NewsTicker } from "@simboonlong/components";
 const newsTicker = NewsTicker({
   el: document.querySelector(".news-ticker"),
   interval: 1000, // optional, default 3000
