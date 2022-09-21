@@ -1,5 +1,7 @@
 $overlay-box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08) !default;
-$overlay-background-color: rgba(0, 0, 0, 0.4) !default;
+$overlay-lightbox-background-color: rgba(0, 0, 0, 0.4) !default;
+$overlay-menu-background-color: rgba(0, 0, 0, 0.9) !default;
+$overlay-menu-text-color: rgba(255, 255, 255, 1) !default;
 $overlay-card-background-color: #fff !default;
 $overlay-card-color: inherit !default;
 $overlay-card-max-width: 900px !default;
@@ -10,7 +12,9 @@ $overlay-cancel-size: 24px !default;
 
 :root {
   --overlay-box-shadow: #{$overlay-box-shadow};
-  --overlay-background-color: #{$overlay-background-color};
+  --overlay-lightbox-background-color: #{$overlay-lightbox-background-color};
+  --overlay-menu-background-color: #{$overlay-menu-background-color};
+  --overlay-menu-text-color: #{$overlay-menu-text-color};
   --overlay-card-background-color: #{$overlay-card-background-color};
   --overlay-card-color: #{$overlay-card-color};
   --overlay-card-max-width: #{$overlay-card-max-width};
@@ -21,33 +25,78 @@ $overlay-cancel-size: 24px !default;
 }
 
 .overlay {
-  transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
   position: fixed;
   z-index: 1000;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
   visibility: hidden;
 
   &.is-active {
-    opacity: 1;
     visibility: visible;
 
-    .overlay-card {
-      transform: scale(1);
+    &[data-trigger="lightbox"] {
+      .overlay-lightbox {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .overlay-card {
+        transform: scale(1);
+      }
+    }
+
+    &[data-trigger="menu"] {
+      .overlay-menu {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 }
 
+.overlay-lightbox,
+.overlay-menu {
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.overlay-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  .overlay-content {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  a {
+    display: block;
+  }
+}
+
 .overlay-background {
-  background-color: var(--overlay-background-color);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+
+  .overlay-lightbox & {
+    background-color: var(--overlay-lightbox-background-color);
+  }
+
+  .overlay-menu & {
+    background-color: var(--overlay-menu-background-color);
+    color: var(--overlay-menu-text-color);
+  }
 }
 
 .overlay-wrap {
@@ -72,13 +121,14 @@ $overlay-cancel-size: 24px !default;
   padding: 16px;
 }
 
+.overlay-backing {
+  width: 100%;
+}
+
 .overlay-overflow {
   position: relative;
   overflow: auto;
   overscroll-behavior: contain;
-}
-
-.overlay-content {
 }
 
 .overlay-cancel {

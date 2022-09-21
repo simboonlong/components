@@ -113,12 +113,32 @@ Example:
 
 ```
 <!-- html -->
+<button class="overlay-trigger" data-trigger="lightbox">Overlay open (lightbox)</button>
 <div class="overlay">
-  <div class="overlay-background"></div>
-  <div class="overlay-wrap">
-    <div class="overlay-card overlay-overflow">
-      <span class="overlay-cancel">X</span>
-      <div class="overlay-content">...</div>
+  <div class="overlay-lightbox">
+    <div class="overlay-background"></div>
+    <div class="overlay-wrap">
+      <div class="overlay-overflow overlay-card">
+        <span class="overlay-cancel">X</span>
+        <div class="overlay-content">...</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+OR
+
+```
+<!-- html -->
+<button class="overlay-trigger" data-trigger="menu">Overlay open (menu)</button>
+<div class="overlay">
+  <div class="overlay-menu">
+    <div class="overlay-background"></div>
+    <div class="overlay-wrap">
+      <div class="overlay-overflow overlay-backing">
+        <div class="overlay-content">...</div>
+      </div>
     </div>
   </div>
 </div>
@@ -126,12 +146,12 @@ Example:
 
 ```
 // scss
-$overlay-background-color: red; // customise
+$overlay-lightbox-background-color: red; // customise
 @import "@simboonlong/components/dist/overlay/overlay.scss";
 
 // alternatively for vanilla css, customise with:
 :root {
-  --overlay-background-color: rgba(0, 0, 0, 0.4);
+  --overlay-lightbox-background-color: rgba(0, 0, 0, 0.4);
 }
 
 // inspect styles for more options
@@ -139,15 +159,12 @@ $overlay-background-color: red; // customise
 
 ```
 // js
-import { overlay } from "@simboonlong/components";
-overlay();
-```
-
-```
-// js other methods
-overlayOpen();
-overlayClose();
-overlayUpdateContent(DOMPurify.sanitize(`<div>foobar</div>`)); // it is recommended to sanitize any raw html! include DOMPurify separately
+import { overlay } from "./index.js";
+const { updateContent, open, close } = overlay({
+  overlay: document.querySelector(".overlay"),
+  trigger: document.querySelectorAll(".overlay-trigger"),
+});
+updateContent(DOMPurify.sanitize(`<div>foobar</div>`)); // it is recommended to sanitize any raw html! include
 ```
 
 ## Paginator
