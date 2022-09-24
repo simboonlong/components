@@ -163,6 +163,7 @@ import { overlay } from "./index.js";
 const { updateContent, open, close } = overlay({
   overlay: document.querySelector(".overlay"),
   trigger: document.querySelectorAll(".overlay-trigger"),
+  closeSelector: ".foobar" // optional. default values are ".overlay-background, .overlay-cancel"
 });
 updateContent(DOMPurify.sanitize(`<div>foobar</div>`)); // it is recommended to sanitize any raw html! include
 ```
