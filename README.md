@@ -39,7 +39,7 @@ Example:
 ```
 // scss
 $drop-down-background-color: #fff !default; // customise
-@import "@simboonlong/components/dist/drop-down/drop-down.scss";
+@import "@simboonlong/components/dist/styles/drop-down/drop-down.scss";
 
 // alternatively for vanilla css, customise with:
 :root {
@@ -84,7 +84,7 @@ Example:
 ```
 // scss
 $news-ticker-speed: 0.7s; // customise
-@import "@simboonlong/components/dist/news-ticker/news-ticker.scss";
+@import "@simboonlong/components/dist/styles/news-ticker/news-ticker.scss";
 
 // alternatively for vanilla css, customise with:
 :root {
@@ -147,7 +147,7 @@ OR
 ```
 // scss
 $overlay-lightbox-background-color: red; // customise
-@import "@simboonlong/components/dist/overlay/overlay.scss";
+@import "@simboonlong/components/dist/styles/overlay/overlay.scss";
 
 // alternatively for vanilla css, customise with:
 :root {
@@ -192,7 +192,7 @@ Example:
 ```
 // scss
 $paginator-link-color: #6f6fff !default;  // customise
-@import "@simboonlong/components/dist/paginator/paginator.scss";
+@import "@simboonlong/components/dist/styles/paginator/paginator.scss";
 
 // alternatively for vanilla css, customise with:
 :root {
