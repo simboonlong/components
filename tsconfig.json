@@ -3,11 +3,8 @@
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "esModuleInterop": true,
-    "noImplicitThis": false,
-    "target": "es6",
-    "module": "ESNext",
     "rootDir": "src"
   },
   "include": ["./src/**/*.ts"],
