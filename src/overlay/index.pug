@@ -20,12 +20,21 @@ html
         .overlay-background
         .overlay-wrap
           .overlay-overflow.overlay-backing
+            svg.overlay-cancel(xmlns="http://www.w3.org/2000/svg", viewbox="0 0 24 24", fill="none", stroke="currentColor", stroke-width="2", stroke-linecap="round", stroke-linejoin="round")
+              line(x1="18", y1="6", x2="6", y2="18")
+              line(x1="6", y1="6", x2="18", y2="18")
             .overlay-content
-              a(href="javascript:void(0)") About us
-              a(href="javascript:void(0)") Contact us
-              a(href="javascript:void(0)") List of items
-              a(href="javascript:void(0)") Events
-              a(href="javascript:void(0)") News
+              div(style="text-align: center;")
+                p
+                  a(style="display: inline-block;" href="javascript:void(0)") About us
+                p
+                  a(style="display: inline-block;" href="javascript:void(0)") Contact us
+                p
+                  a(style="display: inline-block;" href="javascript:void(0)") List of items
+                p
+                  a(style="display: inline-block;" href="javascript:void(0)") Events
+                p
+                  a(style="display: inline-block;" href="javascript:void(0)") News
       .overlay-lightbox
         .overlay-background
         .overlay-wrap
@@ -46,7 +55,7 @@ html
     script(src=`./index.js` type="module")
     script(type="module").
       import { overlay } from "./index.js";
-      const { updateContent } = overlay({
+      const { updateContentLightbox } = overlay({
         overlay: document.querySelector(".overlay"),
         trigger: document.querySelectorAll(".overlay-trigger"),
       });
@@ -54,5 +63,5 @@ html
         const el = event.target;
         el.textContent = `Updated!`;
         el.setAttribute(`disabled`, true);
-        updateContent(DOMPurify.sanitize(`<h1>foobar</h1>`));
+        updateContentLightbox(DOMPurify.sanitize(`<h1>foobar</h1>`));
       });

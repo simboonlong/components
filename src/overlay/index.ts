@@ -5,10 +5,11 @@ type overlayType = typeTuple[number];
 interface Overlay {
   overlay: HTMLElement;
   trigger: HTMLElement[];
+  closeSelector?: string;
 }
 
 interface OverlayHelper {
-  updateContent: (rawHtml: string) => void;
+  updateContentLightbox: (rawHtml: string) => void;
   open: (type: overlayType) => void;
   close: () => void;
 }
@@ -16,8 +17,9 @@ interface OverlayHelper {
 export const overlay = ({
   overlay,
   trigger,
+  closeSelector = ".overlay-background, .overlay-cancel",
 }: Overlay): OverlayHelper | undefined => {
-  const updateContent = (rawHtml: string): void => {
+  const updateContentLightbox = (rawHtml: string): void => {
     const content = <HTMLElement>(
       document.querySelector(".overlay-lightbox .overlay-content")
     );
@@ -55,11 +57,9 @@ export const overlay = ({
     onOpenHandler(trigger as unknown as HTMLElement);
   }
 
-  document
-    .querySelectorAll(".overlay-background, .overlay-cancel")
-    .forEach((el) => {
-      el.addEventListener("click", close);
-    });
+  document.querySelectorAll(closeSelector).forEach((el) => {
+    el.addEventListener("click", close);
+  });
 
-  return { updateContent, open, close };
+  return { updateContentLightbox, open, close };
 };
