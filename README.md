@@ -137,6 +137,7 @@ OR
     <div class="overlay-background"></div>
     <div class="overlay-wrap">
       <div class="overlay-overflow overlay-backing">
+        <span class="overlay-cancel">X</span>
         <div class="overlay-content">...</div>
       </div>
     </div>
@@ -159,13 +160,13 @@ $overlay-lightbox-background-color: red; // customise
 
 ```
 // js
-import { overlay } from "./index.js";
-const { updateContent, open, close } = overlay({
-  overlay: document.querySelector(".overlay"),
+import { Overlay } from "./index.js";
+const { updateContentLightbox, open, close } = Overlay({
+  el: document.querySelector(".overlay"),
   trigger: document.querySelectorAll(".overlay-trigger"),
   closeSelector: ".foobar" // optional. default values are ".overlay-background, .overlay-cancel"
 });
-updateContent(DOMPurify.sanitize(`<div>foobar</div>`)); // it is recommended to sanitize any raw html! include
+updateContentLightbox(DOMPurify.sanitize(`<div>foobar</div>`)); // it is recommended to sanitize any raw html!
 ```
 
 ## Paginator

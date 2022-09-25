@@ -54,9 +54,9 @@ html
     script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.3/purify.min.js')
     script(src=`./index.js` type="module")
     script(type="module").
-      import { overlay } from "./index.js";
-      const { updateContentLightbox } = overlay({
-        overlay: document.querySelector(".overlay"),
+      import { Overlay } from "./index.js";
+      const { updateContentLightbox } = Overlay({
+        el: document.querySelector(".overlay"),
         trigger: document.querySelectorAll(".overlay-trigger"),
       });
       document.getElementById("foobar").addEventListener("click", (event) => {

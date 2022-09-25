@@ -2,8 +2,8 @@ const ALL_TYPES = ["lightbox", "menu"] as const;
 type typeTuple = typeof ALL_TYPES;
 type overlayType = typeTuple[number];
 
-interface Overlay {
-  overlay: HTMLElement;
+interface OverlayProps {
+  el: HTMLElement;
   trigger: HTMLElement[];
   closeSelector?: string;
 }
@@ -14,11 +14,11 @@ interface OverlayHelper {
   close: () => void;
 }
 
-export const overlay = ({
-  overlay,
+export const Overlay = ({
+  el,
   trigger,
   closeSelector = ".overlay-background, .overlay-cancel",
-}: Overlay): OverlayHelper | undefined => {
+}: OverlayProps): OverlayHelper | undefined => {
   const updateContentLightbox = (rawHtml: string): void => {
     const content = <HTMLElement>(
       document.querySelector(".overlay-lightbox .overlay-content")
@@ -27,26 +27,26 @@ export const overlay = ({
   };
 
   const open = (type: overlayType): void => {
-    overlay.classList.add("is-active");
-    overlay.setAttribute("data-trigger", type);
+    el.classList.add("is-active");
+    el.setAttribute("data-trigger", type);
   };
 
   const close = (): void => {
-    overlay.classList.remove("is-active");
-    overlay.removeAttribute("data-trigger");
+    el.classList.remove("is-active");
+    el.removeAttribute("data-trigger");
   };
 
   const onOpenHandler = (el: HTMLElement) => {
     const type = el.getAttribute("data-trigger") as overlayType;
 
-    if (!type) {
-      console.error(
-        `data-trigger attribute is not set on trigger element. it only accepts "${ALL_TYPES}".`,
-      );
-      return;
-    }
-
     el.addEventListener("click", () => {
+      if (!type) {
+        console.error(
+          `The data attribute of data-trigger is not set on trigger HTML element. It currently only accepts "${ALL_TYPES}" value. Please refer to documentation at https://github.com/simboonlong/components#overlay.`,
+        );
+        return;
+      }
+
       open(type);
     });
   };
