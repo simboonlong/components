@@ -12,10 +12,8 @@ jobs:
           node-version: "14"
       - name: Clean Install
         run: npm ci
-      - name: Unit Tests
-        run: npm run tests
-      - name: Build App
-        run: npm run compile
+      - name: Build Demo
+        run: npm run demo
       - name: Integration Tests
         run: npm run e2e:ci
       - name: Build Distribution
