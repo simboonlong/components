@@ -22,7 +22,7 @@
     "test": "jest",
     "e2e": "testcafe chrome integration/*.spec.ts",
     "e2e:single": "testcafe chrome -L",
-    "e2e:ci": "testcafe chrome:headless -c 3 integration/*.spec.ts --app 'npm run serve'",
+    "e2e:ci": "testcafe chrome:headless -c 3 integration/*.spec.ts --app 'npm run serve' --app-init-delay 4000",
     "ts": "tsc --project tsconfig.json --module es2015 --outDir public",
     "scss": "node-sass src --output public",
     "images": "cpy './src/**/*.(jpg|png|svg)' './public'",
