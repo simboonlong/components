@@ -7,14 +7,10 @@ import { createComponent } from "@lit-labs/react";
 export class DropDown extends LitElement {
   @property() text = "";
   @property() links = "[]";
+  @property({ type: Boolean }) isShowMenu = false;
 
   static override styles = css`
     :host {
-      --drop-down-background-color: #fff;
-      --drop-down-border: solid 1px #999;
-      --drop-down-border-radius: 4px;
-      --drop-down-padding: 4px 8px;
-
       position: relative;
     }
 
@@ -36,10 +32,10 @@ export class DropDown extends LitElement {
       list-style-type: none;
       margin: 0;
       min-width: 120px;
-      padding: var(--drop-down-padding);
-      background-color: var(--drop-down-background-color);
-      border: var(--drop-down-border);
-      border-radius: var(--drop-down-border-radius);
+      padding: var(--drop-down-padding, 4px 8px);
+      background-color: var(--drop-down-background-color, #fff);
+      border: var(--drop-down-border, solid 1px #999);
+      border-radius: var(--drop-down-border-radius, 4px);
       border-style: solid;
       border-width: 1px;
 
@@ -53,26 +49,13 @@ export class DropDown extends LitElement {
     }
   `;
 
-  show = (dropDown: HTMLElement) => {
-    dropDown?.classList.add("show");
-  };
-
-  hide = (dropDown: HTMLElement) => {
-    dropDown?.classList.remove("show");
-  };
-
-  handleClick = (event: Event) => {
+  private _handleClick = (event: Event) => {
     event.preventDefault();
-    const target = event.currentTarget as HTMLElement;
-    const dropDown = target.nextElementSibling as HTMLElement;
+    this.isShowMenu = !this.isShowMenu;
 
-    if (dropDown?.classList.contains("show")) {
-      this.hide(dropDown);
-    } else {
-      this.show(dropDown);
-
+    if (this.isShowMenu) {
       setTimeout(() => {
-        document.body.addEventListener("click", () => this.hide(dropDown), {
+        document.body.addEventListener("click", () => { this.isShowMenu = false }, {
           once: true,
         });
       }); // "nextTick" for event loop
@@ -83,16 +66,18 @@ export class DropDown extends LitElement {
     const links: Array<{ text: string; href: string }> = JSON.parse(this.links);
 
     return html`
-      <div class="text" @click=${this.handleClick}>${this.text}</div>
-      <ul class="drop-down">
+      <div part="drop-down-trigger" class="text" @click=${this._handleClick}>${this.text}</div>
+      <ul part="drop-down-menu" class="drop-down ${this.isShowMenu ? "show" : ""}">
         ${links.length > 0
-          ? links.map(
-              (link, index) =>
-                html`<li>
-                  <a href="${link.href}">${link.text} ${index + 1}</a>
-                </li>`,
-            )
-          : html`<slot></slot>`}
+        ? links.map(
+          (link, index) =>
+            html`
+              <li>
+                <a href="${link.href}">${link.text} ${index + 1}</a>
+              </li>
+            `,
+        )
+        : html`<slot></slot>`}
       </ul>
     `;
   }
